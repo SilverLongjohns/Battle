@@ -1,1 +1,7 @@
-<%=$game.player_1.name%> attacked! <%=$game.player_2.name%>'s HP is now <%=$game.player_2.hitpoints%>!
+<%=@game.current_turn.name%> attacked! <%=@game.opponent.name%>'s HP is now <%=@game.opponent.hitpoints%>!
+
+
+<h3> It's <%=@game.opponent.name%>'s turn! </h3> 
+<form action="/switch" method="post">
+  <input type="submit" value="Confirm">
+</form>

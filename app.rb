@@ -11,28 +11,26 @@ class Battle < Sinatra::Base
   end
 
   post '/names' do
-    $game = Game.new(
-      Player.new(params[:player_1_name]),
-      Player.new(params[:player_2_name])
-      )
+    player_1 = Player.new(params[:player_1_name])
+    player_2 = Player.new(params[:player_2_name])
+    $game = Game.new(player_2, player_1)
+    redirect '/play'
+  end
 
+  post '/switch' do
     redirect '/play'
   end
 
   get '/play' do
-    @player_1_hitpoints = $game.player_1.hitpoints
-    @player_2_hitpoints = $game.player_2.hitpoints
-    @player_1_name = $game.player_1.name
-    @player_2_name = $game.player_2.name
-
+    @game = $game
+    @game.end_turn
     erb :play
   end
 
   post '/attack' do
-    
-    $game.attack($game.player_2)
+    @game = $game
+    @game.attack(@game.opponent)
     erb :attack
-
   end
 
   run! if app_file == $0

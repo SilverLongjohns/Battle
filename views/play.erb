@@ -1,5 +1,5 @@
 <h1>
-<%= @player_1_name %>: <%= @player_1_hitpoints %> vs. <%= @player_2_name %>: <%= @player_2_hitpoints %>
+<%= @game.current_turn.name %>: <%= @game.current_turn.hitpoints %> vs. <%= @game.opponent.name %>: <%= @game.opponent.hitpoints %>
 </h1>
 
 <form action='/attack' method='post'>
