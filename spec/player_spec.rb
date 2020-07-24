@@ -14,7 +14,7 @@ describe Player do
         player_1 = Player.new('Ryan')
         player_2 = Player.new('Jake')
 
-        player_1.attack(player_2)
+        player_2.receive_damage
         expect(player_2.hitpoints).to eq 90
     end
 end
