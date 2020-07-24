@@ -1,7 +1,15 @@
 <%=@game.current_turn.name%> attacked! <%=@game.opponent.name%>'s HP is now <%=@game.opponent.hitpoints%>!
 
+<% if @game.opponent.dead? == true %>
+  <form action="/game_over" method="post">
+    <input type="submit" value="You win!">
+  </form>
+
+<%else%>
 
 <h3> It's <%=@game.opponent.name%>'s turn! </h3> 
 <form action="/switch" method="post">
   <input type="submit" value="Confirm">
 </form>
+
+<%end%>

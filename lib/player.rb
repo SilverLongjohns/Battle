@@ -10,4 +10,7 @@ class Player
         @hitpoints -= 10
     end
 
+    def dead?
+        true if @hitpoints < 1
+    end
 end

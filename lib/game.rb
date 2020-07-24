@@ -17,4 +17,7 @@ class Game
     @current_turn = @hotseat[0]
     @opponent = @hotseat[1]
   end
+  def game_over
+    "Game over" if @opponent.dead? == true
+  end
 end

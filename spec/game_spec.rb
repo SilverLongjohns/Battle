@@ -18,4 +18,10 @@ describe Game do
       expect(game.current_turn).to eq(player_2)
     end
   end
+  describe "game over" do
+    it "ends the game when hp=0" do
+      allow(player_2).to receive(:dead?).and_return(true)
+      expect(game.game_over).to eq "Game over"
+    end
+  end
 end
